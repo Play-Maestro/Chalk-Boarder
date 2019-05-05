@@ -31,16 +31,15 @@ public class SnowRamp : MonoBehaviour
         {
             if (!nextSpawn)
             {
-                if (Vector3.Distance(player.position, transform.position) < 20)
+                if (transform.position.x - player.position.x < 20)
                 {
-                    print("Spawn");
                     Instantiate(snowLib.randSnowRamp(), spawnPosition, Quaternion.identity);
                     nextSpawn = true;
                 }
             }
             else
             {
-                if (Vector3.Distance(player.position, transform.position) > 30)
+                if (transform.position.x - player.position.x < -30)
                 {
                     Destroy(this.gameObject);
                 }
